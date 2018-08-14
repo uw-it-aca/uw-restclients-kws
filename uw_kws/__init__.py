@@ -2,11 +2,11 @@
 This is the interface for interacting with the Key Web Service.
 """
 
-from uw_kws.dao import KWS_DAO
-from uw_kws.models import Key
-from restclients_core.exceptions import DataFailureException
 from datetime import datetime
 import json
+from restclients_core.exceptions import DataFailureException
+from uw_kws.dao import KWS_DAO
+from uw_kws.models import Key
 
 
 ENCRYPTION_KEY_URL = "/key/v1/encryption/%s.json"
