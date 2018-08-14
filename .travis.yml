@@ -11,7 +11,7 @@ before_script:
 - pip install commonconf
 - pip install python-coveralls
 script:
-- pep8 --exclude=uw_kws/tests uw_kws
+- pycodestyle --exclude=uw_kws/tests uw_kws
 - coverage run uw_kws/test.py -v
 after_script:
 - coveralls
