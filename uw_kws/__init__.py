@@ -2,14 +2,15 @@
 This is the interface for interacting with the Key Web Service.
 """
 
-from uw_kws.dao import KWS_DAO
-from uw_kws.models import Key
-from restclients_core.exceptions import DataFailureException
 from datetime import datetime
 import json
+from restclients_core.exceptions import DataFailureException
+from uw_kws.dao import KWS_DAO
+from uw_kws.models import Key
 
 
-ENCRYPTION_KEY_PREFIX = '/key/v1'
+ENCRYPTION_KEY_URL = "/key/v1/encryption/%s.json"
+ENCRYPTION_CURRENT_KEY_URL = "/key/v1/type/%s/encryption/current.json"
 
 
 class KWS(object):
@@ -32,7 +33,7 @@ class KWS(object):
         key ID isn't found, or if there is an error communicating with the
         KWS, a DataFailureException will be thrown.
         """
-        url = "%s/encryption/%s.json" % (ENCRYPTION_KEY_PREFIX, key_id)
+        url = ENCRYPTION_KEY_URL % key_id
         return self._key_from_json(self._get_resource(url))
 
     def get_current_key(self, resource_name):
@@ -41,8 +42,7 @@ class KWS(object):
         resource isn't found, or if there is an error communicating with the
         KWS, a DataFailureException will be thrown.
         """
-        url = "%s/type/%s/encryption/current.json" % (ENCRYPTION_KEY_PREFIX,
-                                                      resource_name)
+        url = ENCRYPTION_CURRENT_KEY_URL % resource_name
         return self._key_from_json(self._get_resource(url))
 
     def _key_from_json(self, data):
