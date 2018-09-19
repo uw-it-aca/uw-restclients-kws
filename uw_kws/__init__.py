@@ -8,9 +8,8 @@ from restclients_core.exceptions import DataFailureException
 from uw_kws.dao import KWS_DAO
 from uw_kws.models import Key
 
-
-ENCRYPTION_KEY_URL = "/key/v1/encryption/%s.json"
-ENCRYPTION_CURRENT_KEY_URL = "/key/v1/type/%s/encryption/current.json"
+ENCRYPTION_KEY_URL = "/key/v1/encryption/{}.json"
+ENCRYPTION_CURRENT_KEY_URL = "/key/v1/type/{}/encryption/current.json"
 
 
 class KWS(object):
@@ -33,7 +32,7 @@ class KWS(object):
         key ID isn't found, or if there is an error communicating with the
         KWS, a DataFailureException will be thrown.
         """
-        url = ENCRYPTION_KEY_URL % key_id
+        url = ENCRYPTION_KEY_URL.format(key_id)
         return self._key_from_json(self._get_resource(url))
 
     def get_current_key(self, resource_name):
@@ -42,7 +41,7 @@ class KWS(object):
         resource isn't found, or if there is an error communicating with the
         KWS, a DataFailureException will be thrown.
         """
-        url = ENCRYPTION_CURRENT_KEY_URL % resource_name
+        url = ENCRYPTION_CURRENT_KEY_URL.format(resource_name)
         return self._key_from_json(self._get_resource(url))
 
     def _key_from_json(self, data):

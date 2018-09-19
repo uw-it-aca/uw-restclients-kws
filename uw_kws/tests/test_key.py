@@ -19,10 +19,9 @@ class KWSTestKeyData(TestCase):
             'ee99defd-baee-43b0-9e1e-f8238dd106bb', 'Correct key ID')
         self.assertEquals(key.key, 'Uv2JsxggfxF9OQNzIxAzDQ==', 'Correct key')
         self.assertEquals(key.size, 128, 'Correct key size')
-        self.assertEquals(
-            key.url,
-            'https://it-wseval1.s.uw.edu/key/v1/encryption/ee99defd-baee-43b0-9e1e-f8238dd106bb.json',
-            'Correct key URL')
+        self.assertEquals(key.url, (
+            'https://it-wseval1.s.uw.edu/key/v1/encryption/'
+            'ee99defd-baee-43b0-9e1e-f8238dd106bb.json'), 'Correct key URL')
 
     def test_current_key(self):
         kws = KWS()
@@ -37,7 +36,6 @@ class KWSTestKeyData(TestCase):
             'ee99defd-baee-43b0-9e1e-f8238dd106bb', 'Correct key ID')
         self.assertEquals(key.key, 'Uv2JsxggfxF9OQNzIxAzDQ==', 'Correct key')
         self.assertEquals(key.size, 128, 'Correct key size')
-        self.assertEquals(
-            key.url,
-            'https://it-wseval1.s.uw.edu/key/v1/encryption/ee99defd-baee-43b0-9e1e-f8238dd106bb.json',
-            'Correct key URL')
+        self.assertEquals(key.url, (
+            'https://it-wseval1.s.uw.edu/key/v1/encryption/'
+            'ee99defd-baee-43b0-9e1e-f8238dd106bb.json'), 'Correct key URL')
