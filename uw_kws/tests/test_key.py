@@ -13,7 +13,7 @@ class KWSTestKeyData(TestCase):
         self.assertEquals(key.cipher_mode, 'CBC', 'Correct cipher mode')
         self.assertEquals(
             key.expiration.isoformat(),
-            '2013-04-11T13:44:33', 'Correct expiration')
+            '2013-04-11T13:44:33.360000', 'Correct expiration')
         self.assertEquals(
             key.key_id,
             'ee99defd-baee-43b0-9e1e-f8238dd106bb', 'Correct key ID')
@@ -30,7 +30,7 @@ class KWSTestKeyData(TestCase):
         self.assertEquals(key.cipher_mode, 'CBC', 'Correct cipher mode')
         self.assertEquals(
             key.expiration.isoformat(),
-            '2013-04-11T13:44:33', 'Correct expiration')
+            '2013-04-11T13:44:33.360000', 'Correct expiration')
         self.assertEquals(
             key.key_id,
             'ee99defd-baee-43b0-9e1e-f8238dd106bb', 'Correct key ID')
