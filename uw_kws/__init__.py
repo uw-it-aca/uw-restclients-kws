@@ -33,6 +33,8 @@ class KWS(object):
         """
         if key_id is not None:
             url = ENCRYPTION_KEY_URL.format(key_id)
+        elif url is None:
+            raise TypeError('URL is None')
         return Key.from_json(self._get_resource(url))
 
     def get_current_key(self, resource_name):
