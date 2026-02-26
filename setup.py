@@ -18,11 +18,11 @@ setup(
     name='UW-RestClients-KWS',
     version=VERSION,
     packages=['uw_kws'],
-    author="UW-IT T&LS",
+    author="UWIT Student & Educational Technology Services",
     author_email="aca-it@uw.edu",
     include_package_data=True,
     install_requires=[
-        'UW-RestClients-Core>1.4,<2.0',
+        'uw-restclients-core~=1.4',
         'python-dateutil',
         'mock',
     ],
